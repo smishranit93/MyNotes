@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>
+        react demo using cdn
+    </title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script type="text/babel">
+        // let demo = React.createElement(
+        //     "h1", { style: { color: "green" } }, "Hello React"
+        // )
+        // ReactDOM.render(
+        //     demo,
+        //     document.getElementById('root')
+        // );
+        const Example = (props) => { 
+  return React.createElement( 
+    "div", 
+    {}, 
+    React.createElement("h1", {}, "Contacts"), 
+    React.createElement( 
+      "ul", 
+      {}, 
+      React.createElement( 
+        "li", 
+        {}, 
+        React.createElement("h2", { style: { color: "red" } }, "James Nelson"), 
+        React.createElement( 
+          "a", 
+          { href: "mailto:james@jamesknelson.com" }, 
+          `${props.name}`
+        ) 
+      ), 
+      React.createElement( 
+        "li", 
+        {}, 
+        React.createElement("h2", { style: { color: "green" } }, "Joe Citizen"), 
+        React.createElement( 
+          "a", 
+          { href: "mailto:joe@example.com" }, 
+          `${props.name}`
+        ) 
+      ), 
+      React.createElement( 
+        "li", 
+        {}, 
+        React.createElement("h2", { style: { color: "orange" } }, "Zoe Clara"), 
+        React.createElement( 
+          "a", 
+          { href: "mailto:zoe@exxample.com" }, 
+          `${props.name}`
+        ) 
+      ), 
+      React.createElement( 
+        "li", 
+        {}, 
+        React.createElement( 
+          "h2", 
+          { style: { color: "brown" } }, 
+          "Albert Sharma" 
+        ), 
+        React.createElement( 
+          "a", 
+          { href: "mailto:sharma.a@example.com" }, 
+          "sharma.a@example.com" 
+        ) 
+      ) 
+    ) 
+  ); 
+}; 
+ReactDOM.render( 
+  React.createElement(Example,{name:"sameer"}), 
+  document.getElementById("root") 
+); 
+
+    </script>
+</body>
+
+</html>
