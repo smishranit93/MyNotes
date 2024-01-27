@@ -1,0 +1,95 @@
+To handle file operations like creating, reading, deleting, etc., Node.js
+ provides an inbuilt module called FS (File System)
+ All file system operations can have synchronous and asynchronous forms 
+ depending upon user requirements. To use this File System module, use the
+  require() method:
+
+var fs = require('fs');
+
+Common use for File System module:
+
+Read Files
+Write Files
+Append Files
+Close Files
+Delete Files
+
+Synchronous approach: They are called blocking functions as it waits for
+ each operation to complete, only after that, it executes the next operation,
+
+
+Asynchronous approach: They are called non-blocking functions as it never waits
+ for each operation to complete, rather it executes all operations in the first
+  go itself
+
+----------------
+Writing to a File: 
+This method will overwrite the file if the file already exists. The
+ fs.writeFile() method is used to asynchronously write the specified data 
+ to a file. By default, the file would be replaced if it exists 
+ var fs = require("fs");
+ 
+console.log("writing into existing file");
+
+fs.writeFile('input.txt', 'Hi my name is sameer mishra', function(err) {
+   if (err) {
+      return console.error(err);
+   }
+    
+   console.log("file written successfully!");
+    
+   fs.readFile('input.txt', "utf-8",function (err, data) {
+      if (err) {
+         return console.error(err);
+      }
+      console.log("Asynchronous read: " + data);
+   });
+}); 
+
+-------------------------------------------
+Appending to a File: The fs.appendFile() method is used to synchronously 
+append the data to the file. Syntax:
+
+fs.appendFile(filepath, data, options, callback);
+
+var fs = require('fs');
+  
+var data = "i am full satck developer";
+// Append data to file
+fs.appendFile('input.txt', data, 'utf-8',
+    // Callback function
+    function(err) { 
+        if (err) throw err;
+ 
+        //  If no error
+        console.log("Data is appended to file successfully.")
+});
+
+------------------Synchrouns way 
+var fs = require('fs');
+var data = "i am full satckd eveloper";
+// Append data to file
+fs.appendFileSync('input.txt', data, 'utf-8');
+console.log("Data is appended to file successfully.")
+
+
+-----------------------
+Delete a File: The fs.unlink() method is used to remove a file or symbolic 
+link from the filesystem. This function does not work on directories, 
+therefore it is recommended to use fs.rmdir() to remove a directory.
+ Syntax:  fs.unlink(path, callback)
+
+
+-----------------------
+The fs.mkdir() method in Node.js is used to create a directory asynchronously.
+
+const fs = require('fs');
+const path = require('path');
+ 
+fs.mkdir(path.join(__dirname, 'test'),
+    (err) => {
+        if (err) {
+            return console.error(err);
+        }
+        console.log('Directory created successfully!');
+    });

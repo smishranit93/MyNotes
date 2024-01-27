@@ -29,6 +29,20 @@ Node Package Manager has two primary functions:
 Provides searchable online repositories for node.js packages/modules at search.Node.js.org.
 Installs Node.js packages and maintains Node.js versions and dependencies using a command-line interface.
 
+---------------------Installation nodejs
+Install Node.js on Windows
+Visit Node.js official web site https://nodejs.org. It will automatically 
+detect OS and display download link as per your Operating System
+
+Download the installer for windows by clicking on LTS or Current version button.
+After you download the MSI, double-click on it to start the installation
+
+Once you install Node.js on your computer, you can verify it by opening the
+ command prompt and typing node -v. If Node.js is installed successfully
+  then it will display the version of the Node.js installed on your machine
+
+For Mac--- brew install node
+
 ------------Hello World HTTP server--------------
 A very common use case for Node is building servers. Node makes it very simple to
 create different types of servers. This can feel odd if you’re used to having a server

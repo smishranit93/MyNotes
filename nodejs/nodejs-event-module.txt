@@ -1,0 +1,25 @@
+Node.js EventEmitter
+Node.js allows us to create and handle custom events easily by using 
+events module. Event module includes EventEmitter class which can be used 
+to raise and handle custom events
+
+According to the official documentation of Node.js, it is an asynchronous
+ event-driven JavaScript runtime. Node.js has an event-driven architecture
+  which can perform asynchronous tasks. Node.js has ‘events’ module which 
+  emits named events that can cause corresponding functions or callbacks 
+  to be called. Functions(Callbacks) listen or subscribe to a particular 
+  event to occur and when that event triggers
+
+  // Importing events
+const EventEmitter = require('events');
+  
+// Initializing event emitter instances 
+var eventEmitter = new EventEmitter();
+ 
+// Registering to myEvent 
+eventEmitter.on('myEvent', (msg) => {
+   console.log(msg);
+});
+ 
+// Triggering myEvent
+eventEmitter.emit('myEvent', "First event");
