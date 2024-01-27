@@ -1,15 +1,15 @@
 
 //-----------------------------------------------------------------------------------------------------The Object.defineProperty() method adds or modifies a property in an object. We can use this method to provide extra configuration details about the object properties and control their behavior. Syntax is:
 
-Object.defineProperty(object, prop, descriptor);
-object – Any object on which we want to define the property.
-prop – The name of the property to be added or modified.
-descriptor – It’s an object which specifies configuration details about the property.
+// Object.defineProperty(object, prop, descriptor);
+// object – Any object on which we want to define the property.
+// prop – The name of the property to be added or modified.
+// descriptor – It’s an object which specifies configuration details about the property.
 
 //-----------------------------------------------------------------------------------------------------
 
-configurable
-It indicates whether the property can be re-configurable (re-define using defineProperty() method) or deleted. If not set, it defaults to false. If set to false, we can’t delete this property, and if we try to re-define it, it throws an error.
+// configurable
+// It indicates whether the property can be re-configurable (re-define using defineProperty() method) or deleted. If not set, it defaults to false. If set to false, we can’t delete this property, and if we try to re-define it, it throws an error.
 
 const ob = { x: 20 };
 Object.defineProperty(ob, "x", { configurable: false });
@@ -22,8 +22,8 @@ Object.defineProperty(ob, "x", { configurable: true });
 //-----------------------------------------------------------------------------------------------------
 
 
-enumerable
-It indicates whether the property appears during the enumeration of properties on the object. If not set, it defaults to false. If set to false, this property won’t appear in methods like Object.keys, Object.values, Object.entries, Object.assign, spread operator, for...in loop, etc.
+// enumerable
+// It indicates whether the property appears during the enumeration of properties on the object. If not set, it defaults to false. If set to false, this property won’t appear in methods like Object.keys, Object.values, Object.entries, Object.assign, spread operator, for...in loop, etc.
 
 const ob = { x: 20, y: 30, z: 40 };
 Object.defineProperty(ob, "x", { enumerable: false });
@@ -37,11 +37,11 @@ for (const key in ob) {
 
 //-----------------------------------------------------------------------------------------------------
 
-Data descriptor properties
-The data descriptor has two properties named value and writable. Let’s explore them.
+// Data descriptor properties
+// The data descriptor has two properties named value and writable. Let’s explore them.
 
-value
-It sets the value of the property. If not provided, it defaults to undefined.
+// value
+// It sets the value of the property. If not provided, it defaults to undefined.
 
 const ob = { x: 20 };
 Object.defineProperty(ob, "x", { value: 40 });
@@ -49,11 +49,11 @@ Object.defineProperty(ob, "y", { value: 55 });
 console.log(ob); // { x: 40, y: 55 }
 
 //-----------------------------------------------------------------------------------------------------
-writable
+// writable
 
-It indicates whether the property value can be changed using the assignment operator (=). If not set, it defaults to false.
- If set to false, property value can’t be changed using the assignment operator but it still can be changed using 
- the defineProperty() method.
+// It indicates whether the property value can be changed using the assignment operator (=). If not set, it defaults to false.
+//  If set to false, property value can’t be changed using the assignment operator but it still can be changed using 
+//  the defineProperty() method.
 
 const ob = { x: 20 };
 Object.defineProperty(ob, "x", { writable: false });
@@ -62,19 +62,19 @@ console.log(ob.x); // 20
 Object.defineProperty(ob, "x", { value: 55 });
 console.log(ob.x); // 55
 
-If any property is added while creating the object or through dot/bracket notation, then the default value of 
-configurable, enumerable, and writable would be set to true. Detailed examples provided in Object.getOwnPropertyDescriptor() 
-section
+// If any property is added while creating the object or through dot/bracket notation, then the default value of 
+// configurable, enumerable, and writable would be set to true. Detailed examples provided in Object.getOwnPropertyDescriptor() 
+// section
 //-----------------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------------
-Accessor descriptor properties
+// Accessor descriptor properties
 
-The accessor descriptor also has two properties named get and set. Let’s explore them.
+// The accessor descriptor also has two properties named get and set. Let’s explore them.
 
-get
+// get
 
-It is used to create a getter function. Default value is undefined.
+// It is used to create a getter function. Default value is undefined.
 
 const ob = { x: 10 };
 Object.defineProperty(ob, "x2", {
@@ -85,9 +85,9 @@ Object.defineProperty(ob, "x2", {
 ​
 console.log(ob.x2); // 100
 //-----------------------------------------------------------------------------------------------------
-set
+// set
 
-It is used to create a setter function. Default value is undefined.
+// It is used to create a setter function. Default value is undefined.
 
 const ob = {};
 Object.defineProperty(ob, "x", {
@@ -105,7 +105,7 @@ console.log(ob.x); // 99
 //-----------------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------------
-If we mix the data and accessor descriptor properties, it throws an error.
+// If we mix the data and accessor descriptor properties, it throws an error.
 
 const ob = {};
 Object.defineProperty(ob, "x", {
@@ -120,8 +120,8 @@ Object.defineProperty(ob, "x", {
 
 //-----------------------------------------------------------------------------------------------------
 
-The Object.getOwnPropertyDescriptor() method
-This method takes an object and its property name as arguments and returns the respective property descriptor object.
+// The Object.getOwnPropertyDescriptor() method
+// This method takes an object and its property name as arguments and returns the respective property descriptor object.
 
 const ob = { x: 20 };
 console.log(Object.getOwnPropertyDescriptor(ob, "x"));
@@ -171,8 +171,8 @@ console.log(Object.getOwnPropertyDescriptor(ob, "k"));
 */
 
 //-----------------------------------------------------------------------------------------------------
-Bonus: Object.defineProperties() method
-This method lets us add or modify multiple properties at a time. It takes one object on which we want to add or modify properties and an object containing the property names and their respective descriptors in key-value pair.
+// Bonus: Object.defineProperties() method
+// This method lets us add or modify multiple properties at a time. It takes one object on which we want to add or modify properties and an object containing the property names and their respective descriptors in key-value pair.
 
 const ob = {};
 Object.defineProperties(ob, {
@@ -192,9 +192,9 @@ Object.defineProperties(ob, {
 ​
 console.log(ob); // { x: 20, y: 30 }
 
-Bonus: Object.getOwnPropertyDescriptors() method
+// Bonus: Object.getOwnPropertyDescriptors() method
 
-This method takes an object and returns all of its property descriptors.
+// This method takes an object and returns all of its property descriptors.
 
 const ob = { x: 40 };
 Object.defineProperty(ob, "y", {

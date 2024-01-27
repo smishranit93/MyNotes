@@ -1,0 +1,64 @@
+In Node.js Application, a Module can be considered as a block of code that 
+provide a simple or complex functionality that can communicate with 
+external application. Modules can be organized in a single file or a collection
+ of multiple files/folders.it provides reusability
+Nodejs uses the CommonJS Module standard implementation in its module ecosystem. 
+Types of Modules:  In Nodejs, there is 3 type of modules namely
+
+--------------------------Core Modules
+Core Modules:  Node.js comes with dozens of built-in modules. These built-in 
+modules are sometimes referred to as core modules. The module system is built
+ around the require function. This function is used to load a module and get 
+ access to its contents. require is a global variable provided to all your 
+ Node.js scripts, so you can use it anywhere you like
+Syntax for Importing Module: 
+
+const module = require("Name_of_Module_to_be_imported");
+How to use Core Module: You can directly use the Nodejs core module in
+ your application without any installation. Let’s see an example of the 
+ file system (fs) module to handle the files in the application. 
+ // Working code of fs module
+const fs = require('fs'); // Import fs module
+fs.writeFileSync('notes.txt', 'i am sameer');
+some core modules are----fs,http,https,path,url,os,dns
+------------------------Local Modules 
+ local modules are created locally in your Node.js application. Let’s create a
+  simple calculating module that calculates various operations. Create a 
+  calc.js file that has the following code: 
+filename-calc.js
+exports.add = function (x, y) {
+    return x + y;
+};
+ 
+exports.sub = function (x, y) {
+    return x - y;
+};
+ 
+exports.mult = function (x, y) {
+    return x * y;
+};
+ 
+exports.div = function (x, y) {
+    return x / y;
+};
+create index.js and load created local module here uisng require keywords
+Note---When we want to export a single class/variable/function from one module 
+to another module, we use module.exports.
+When we want to export multiple variables/functions from one module to another, we use exports.
+const calculator = require('./calc');
+let x = 50, y = 10;
+console.log("Addition of 50 and 10 is "
+             + calculator.add(x, y));
+
+
+---------------Third-Party Modules
+Third-party modules can be installed from the NPM (Node Package Manager) available online. 
+
+Firstly we need to initialize the npm using the npm init command before npm 
+can be used. It creates a package.json file in the root directory and it 
+stores all the information about the third-party module that we have installed
+ as a dependency. 
+ Installing an NPM module:
+npm install "module_name"
+Examples of Third-Party Module: 
+npm install express

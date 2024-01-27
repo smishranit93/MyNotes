@@ -1,0 +1,58 @@
+The official website (http://www.nodejs.org) defines Node as “a platform built on
+Chrome’s JavaScript runtime for easily building fast, scalable network applications.
+Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and 
+efficient, perfect for data-intensive real-time applications that run across distributed devices.”
+
+
+Node.js is a JavaScript run-time environment built on Chrome's V8 engine, not a framework or library. It enables server-side execution of JavaScript code.
+
+Node.js is also an open-source platform, allowing greater freedom to 
+develop real-time network applications. It provides asynchronous, 
+event-driven I/O APIs to developers. All executions become non-blocking 
+since it operates on a single-threaded event-based loop.
+
+------------Node.js Advantages -------
+High Performance
+Scalability 
+Easy to Learn 
+Reduces Loading time using caching 
+Improves Response time and boosts performance
+Large Community Support 
+Cost-Effective
+Extensibility 
+
+-------What is NPM?-----------------------
+NPM is Node Package Manager, which manages all Node.js packages and modules. 
+
+Node Package Manager has two primary functions:
+
+Provides searchable online repositories for node.js packages/modules at search.Node.js.org.
+Installs Node.js packages and maintains Node.js versions and dependencies using a command-line interface.
+
+------------Hello World HTTP server--------------
+A very common use case for Node is building servers. Node makes it very simple to
+create different types of servers. This can feel odd if you’re used to having a server
+host your application (such as a PHP application hosted on an Apache HTTP server).
+In Node, the server and the application are the same. 
+ Here’s an example of an HTTP server that simply responds to any request with
+"Hello World"
+var http = require('http');
+http.createServer(function (req, res) {
+res.writeHead(200, {'Content-Type': 'text/plain'});
+res.end('Hello World\n');
+}).listen(3000);
+console.log('Server running at http://localhost:3000/');
+Whenever a request happens, the function (req, res) callback is fired and “Hello
+World” is written out as the response. This event model is akin to listening to an
+onclick event in the browser. A click could happen at any point, so you set up a function to perform some logic to handle that. Here, Node provides a function that
+responds whenever a request happens. 
+ Here’s another way to write this same server to make the request event even more
+explicit:
+var http = require('http');
+var server = http.createServer();
+server.on('request', function (req, res) {
+res.writeHead(200, {'Content-Type': 'text/plain'});
+res.end('Hello World\n');
+})
+server.listen(3000);
+console.log('Server running at http://localhost:3000/');

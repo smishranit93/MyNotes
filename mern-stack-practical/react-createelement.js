@@ -1,8 +1,8 @@
-The JSX we write inside the react is often transpiled into a React.createElement() method with the help of babel compiler.
-React.createElement() method takes the three arguments type , props ,children.
-type: Type of the html element or component (example : h1,h2,p,button, etc).
-props: The properties object (example: {style: { color: “red” }} or className or event handlers etc).
-children: anything you need to pass between the dom elements
+// The JSX we write inside the react is often transpiled into a React.createElement() method with the help of babel compiler.
+// React.createElement() method takes the three arguments type , props ,children.
+// type: Type of the html element or component (example : h1,h2,p,button, etc).
+// props: The properties object (example: {style: { color: “red” }} or className or event handlers etc).
+// children: anything you need to pass between the dom elements
 
 let welcome = React.createElement(
   "h1",
@@ -10,16 +10,16 @@ let welcome = React.createElement(
   `Welcome to react world`
 );
 ReactDOM.render(welcome, document.querySelector("#root"));
-ReactDom.render method accepts two arguments.
-The first argument is which component or element needs to render in the dom.
-The second argument is where to render in the dom.
+// ReactDom.render method accepts two arguments.
+// The first argument is which component or element needs to render in the dom.
+// The second argument is where to render in the dom.
 
 
 
 
 
-This is a pure JavaScript without using jsx.
-Let’s refactor the above code by creating a Welcome component with the classes.
+// This is a pure JavaScript without using jsx.
+// Let’s refactor the above code by creating a Welcome component with the classes.
 class Welcome extends React.Component {
   render() {
     return React.createElement(
@@ -39,12 +39,12 @@ ReactDOM.render(
 
 
 
-https://www.copycat.dev/blog/reactjs-cdn/
+// https://www.copycat.dev/blog/reactjs-cdn/
 
 
 
 
-simple hello world uisng react create createElement
+//simple hello world uisng react create createElement
 let demo = React.createElement(
     "h1", { style: { color: "green" } }, "Welcome to GeeksforGeeks"
 )
@@ -55,7 +55,7 @@ ReactDOM.render(
 
 
 
-Counter component example using React createelement ---------------
+//Counter component example using React createelement ---------------
 const  el =  React.createElement;
 
 function Button(props){
@@ -86,9 +86,9 @@ class Counter extends React.Component{
   }
 }
 
-ReactDOM.render(el(Counter,null,null),document.querySelector('#root'));
+//ReactDOM.render(el(Counter,null,null),document.querySelector('#root'));
 
-Let’s see the same Counter example by using JSX.
+//Let’s see the same Counter example by using JSX.
 
 function Button(props) {
   return <button onClick={props.handleClick}>{props.name}</button>
@@ -123,5 +123,5 @@ class Counter extends React.Component {
     )
   }
 }
-ReactDOM.render(<Counter />, document.querySelector('#root'))
-By using JSX, the code readability increases and also we can create components easily this is the reason we use jsx in react apps.
+// ReactDOM.render(<Counter />, document.querySelector('#root'))
+// By using JSX, the code readability increases and also we can create components easily this is the reason we use jsx in react apps.
