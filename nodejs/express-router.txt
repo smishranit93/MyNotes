@@ -1,0 +1,39 @@
+--------------------------------Routers
+Defining routes in single app.js/index.js is very tedious to maintain. 
+To separate the routes from our main index.js file, we will use
+ Express.Router. Create a new file called things.js and type the 
+ following in it.
+
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function(req, res){
+   res.send('GET route on things.');
+});
+router.post('/', function(req, res){
+   res.send('POST route on things.');
+});
+
+//export this router to use in our index.js
+module.exports = router;
+
+Now to use this router in our index.js, type in the following before the app.listen function call.
+
+var express = require('Express');
+var app = express();
+
+var things = require('./things.js');
+
+//both index.js and things.js should be in same directory
+app.use('/things', things);
+
+app.listen(3000);
+
+The app.use function call on route '/things' attaches the things router 
+with this route. Now whatever requests our app gets at the '/things',
+ will be handled by our things.js router.
+
+ Routers are very helpful in separating concerns and keep relevant 
+ portions of our code together. They help in building maintainable code.
+  You should define your routes relating to an entity in a single file 
+  and include it using the above method in your index.js file
