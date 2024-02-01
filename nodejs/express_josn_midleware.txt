@@ -1,0 +1,24 @@
+The express.json() function is a built-in middleware function in Express.
+ It parses incoming requests with JSON payloads and is based on 
+ body-parser. 
+
+ app.use(express.json());
+ 
+app.post('/', function (req, res) {
+    console.log(req.body.name)
+    res.end();
+})
+
+// Without this middleware 
+// app.use(express.json()); 
+app.post('/', function (req, res) {
+    console.log(req.body.name)
+    res.end();
+})
+
+ Now make a POST request to http://localhost:3000/ with header set to
+  ‘content-type: application/json’ and body {"name:"sameer"}, then you 
+  will see the following output on your console:
+
+Server listening on PORT 3000
+TypeError: Cannot read property 'name' of undefined
